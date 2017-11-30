@@ -22,6 +22,7 @@ dat <- tibble::as_tibble(
    data.table = FALSE))
 out <- tv_clean_ids(x, ids = dat$id, db = "ncbi")
 (res <- tv_summarise(out))
+res$summary
 res$by_rank
 res$by_rank_name
 res$by_within_rank

@@ -10,6 +10,7 @@
 #'    data.table = FALSE))
 #' out <- tv_clean_ids(x, ids = dat$id, db = "ncbi")
 #' (res <- tv_summarise(out))
+#' res$summary
 #' res$by_rank
 #' res$by_rank_name
 #' res$by_within_rank
@@ -17,6 +18,8 @@ tv_summarise <- function(x) {
 	# must be a data.frame
 	assert(x, "data.frame")
   x <- tbl_df(x)
+  # summary data
+  sumdat <- length(unique(x$query))
 	# by rank
   rank <- x %>% 
     group_by(rank) %>% 
@@ -37,15 +40,24 @@ tv_summarise <- function(x) {
     group_by(rank) %>% 
     select(-percent) %>% 
     mutate(percent = round((count / sum(count)) * 100)) %>% 
-    nest() %>% 
-    unlist(recursive = FALSE) %>% 
-    unname
+    nest()
+  within_rank <- stats::setNames(within_rank$data, within_rank$rank)
 
   # compile output
   out <- list(
+    summary = list(spp = sumdat),
     by_rank = rank, 
     by_rank_name = rank_name,
     by_within_rank = within_rank
   )
 	return(structure(out, class = "tv_summary"))
+}
+
+#' @export
+print.tv_summary <- function(x, ...) {
+  cat("<tv_summary>", sep = "\n")
+  cat(sprintf(" no. taxa: %s", x$summary$spp), sep = "\n")
+  cat(sprintf(" by rank: N (%s)", NROW(x$by_rank)), sep = "\n")
+  cat(sprintf(" by rank name: N (%s)", NROW(x$by_rank_name)), sep = "\n")
+  cat(sprintf(" within ranks: N (%s)", length(x$by_within_rank)), sep = "\n")
 }

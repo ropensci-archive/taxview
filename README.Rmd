@@ -1,6 +1,14 @@
 taxview
 =======
 
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE
+)
+```
+
 taxonomy based data explorer
 
 ## install
