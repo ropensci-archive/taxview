@@ -27,7 +27,9 @@ prepare data: clean, etc.
 dat <- tibble::as_tibble(
  data.table::fread(x, stringsAsFactors = FALSE, 
    data.table = FALSE))
+head(dat)
 dat_clean <- tv_clean_ids(x, ids = dat$id, db = "ncbi")
+head(dat_clean)
 ```
 
 prepare summary
