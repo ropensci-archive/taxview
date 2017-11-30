@@ -1,6 +1,8 @@
 #' Tools for Vizualizing Data Taxonomically
 #'
-#' @import taxize dplyr tidyr
+#' @import dplyr 
+#' @importFrom taxize classification
+#' @importFrom tidyr nest
 #' @name taxview-package
 #' @aliases taxview
 #' @docType package
