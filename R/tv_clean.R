@@ -52,6 +52,7 @@ tv_clean_names.default <- function(x) {
 
 #' @export
 tv_clean_names.character <- function(x, col = NULL, names = NULL, db = NULL) {
+  stop("not working yet")
   # file must exist
   stopifnot(file.exists(x))
   stopifnot(xor(!is.null(col), !is.null(names)))
@@ -65,6 +66,7 @@ tv_clean_names.character <- function(x, col = NULL, names = NULL, db = NULL) {
 
 #' @export
 tv_clean_names.data.frame <- function(x, col = NULL, names = NULL, db = NULL) {
+  stop("not working yet")
   stopifnot(xor(!is.null(names_col), !is.null(ids_col)))
   if (any())
   do_names(dat, col, names, db)
