@@ -1,0 +1,40 @@
+taxview
+=======
+
+taxonomy based data explorer
+
+## install
+
+```{r eval=FALSE}
+devtools::install_github("ropensci/taxview")
+```
+
+```{r}
+library(taxview)
+```
+
+## use
+
+get some data
+
+```{r}
+dat <- system.file("examples/plant_spp.csv", package = "taxview")
+```
+
+prepare data: clean, etc.
+
+```{r}
+(dat_clean <- tv_clean(dat))
+```
+
+prepare summary
+
+```{r}
+(sumdat <- tv_summarise(dat_clean))
+```
+
+visualize (NOT WORKING YET)
+
+```{r eval=FALSE}
+tv_viz(sumdat)
+```
