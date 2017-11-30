@@ -18,13 +18,16 @@ library(taxview)
 get some data
 
 ```{r}
-dat <- system.file("examples/plant_spp.csv", package = "taxview")
+x <- system.file("examples/plant_spp.csv", package = "taxview")
 ```
 
 prepare data: clean, etc.
 
 ```{r}
-(dat_clean <- tv_clean(dat))
+dat <- tibble::as_tibble(
+ data.table::fread(x, stringsAsFactors = FALSE, 
+   data.table = FALSE))
+dat_clean <- tv_clean_ids(x, ids = dat$id, db = "ncbi")
 ```
 
 prepare summary
