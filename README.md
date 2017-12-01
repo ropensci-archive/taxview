@@ -85,3 +85,12 @@ visualize (NOT WORKING YET)
 ```r
 tv_viz(sumdat)
 ```
+
+## Meta
+
+* Please [report any issues or bugs](https://github.com/ropensci/taxview/issues).
+* License: MIT
+* Get citation information for `taxview` in R doing `citation(package = 'taxview')`
+* Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md).
+By participating in this project you agree to abide by its terms.
+
