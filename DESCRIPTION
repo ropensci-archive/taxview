@@ -7,7 +7,7 @@ Authors@R: c(
     person("Scott", "Chamberlain", email = "myrmecocystus+r@gmail.com", role = c("aut", "cre")),
     person("Carl", "Boettiger", role = "aut")
     )
-URL: https://github.com/ropensci/taxview
+URL: https://docs.ropensci.org/taxview, https://github.com/ropensci/taxview
 BugReports: https://github.com/ropensci/taxview/issues
 License: MIT + file LICENSE
 LazyData: TRUE
