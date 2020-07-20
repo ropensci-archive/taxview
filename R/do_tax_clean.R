@@ -13,7 +13,7 @@ do_nms <- function(x, tax_names = NULL, tax_ids = NULL, db = NULL) {
     xx <- x[[tax_ids]]
     if (is.null(xx)) stop("'tax_ids' field not found or empty")
     # get classifications for each ID
-    taxize::classification()
+    taxizedb::classification()
   }
   
   xx_uniq <- unique(xx)

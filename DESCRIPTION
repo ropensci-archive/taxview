@@ -18,7 +18,9 @@ Imports:
     taxize (>= 0.9.0),
     taxizedb,
     dplyr,
-    tidyr
+    tidyr,
+    tibble,
+    data.table
 Suggests:
     testthat
 RoxygenNote: 7.1.1
