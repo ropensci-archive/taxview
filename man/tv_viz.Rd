@@ -16,6 +16,7 @@ opens interactive vis
 Visualize data with respect to taxonomy
 }
 \examples{
+\dontrun{
 x <- system.file("examples/plant_spp.csv", package = "taxview")
 dat <- tibble::as_tibble(
  data.table::fread(x, stringsAsFactors = FALSE,
@@ -23,4 +24,5 @@ dat <- tibble::as_tibble(
 out <- tv_clean_ids(x, ids = dat$id, db = "ncbi")
 (res <- tv_summarise(out))
 tv_viz(res)
+}
 }
