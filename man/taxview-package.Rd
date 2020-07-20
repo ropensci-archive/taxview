@@ -4,7 +4,7 @@
 \name{taxview-package}
 \alias{taxview-package}
 \alias{taxview}
-\title{Tools for Vizualizing Data Taxonomically}
+\title{taxview}
 \description{
 Tools for Vizualizing Data Taxonomically
 }
