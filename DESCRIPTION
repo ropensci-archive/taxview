@@ -2,7 +2,7 @@ Package: taxview
 Type: Package
 Title: Tools for Vizualizing Data Taxonomically
 Description: Tools for vizualizing data taxonomically.
-Version: 0.0.1.9100
+Version: 0.0.2.91
 Authors@R: c(
     person("Scott", "Chamberlain", email = "myrmecocystus+r@gmail.com", role = c("aut", "cre")),
     person("Carl", "Boettiger", role = "aut")
@@ -12,10 +12,13 @@ BugReports: https://github.com/ropensci/taxview/issues
 License: MIT + file LICENSE
 LazyData: TRUE
 Roxygen: list(markdown = TRUE)
+Encoding: UTF-8
+Lanuage: en-US
 Imports:
     taxize (>= 0.9.0),
+    taxizedb,
     dplyr,
     tidyr
 Suggests:
     testthat
-RoxygenNote: 6.0.1
+RoxygenNote: 7.1.1
