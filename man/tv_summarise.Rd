@@ -16,6 +16,7 @@ an object of class tv_summary
 Summarise data with respect to taxonomy
 }
 \examples{
+\dontrun{
 x <- system.file("examples/plant_spp.csv", package = "taxview")
 dat <- tibble::as_tibble(
  data.table::fread(x, stringsAsFactors = FALSE, 
@@ -26,4 +27,5 @@ res$summary
 res$by_rank
 res$by_rank_name
 res$by_within_rank
+}
 }

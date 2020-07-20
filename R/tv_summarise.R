@@ -3,7 +3,7 @@
 #' @export
 #' @param x (data.frame) input data
 #' @return an object of class tv_summary
-#' @examples
+#' @examples \dontrun{
 #' x <- system.file("examples/plant_spp.csv", package = "taxview")
 #' dat <- tibble::as_tibble(
 #'  data.table::fread(x, stringsAsFactors = FALSE, 
@@ -14,10 +14,11 @@
 #' res$by_rank
 #' res$by_rank_name
 #' res$by_within_rank
+#' }
 tv_summarise <- function(x) {
 	# must be a data.frame
-	assert(x, "data.frame")
-  x <- tbl_df(x)
+	assert(x, c("data.frame", "tbl_df"))
+  x <- as_tibble(x)
   # summary data
   sumdat <- length(unique(x$query))
 	# by rank

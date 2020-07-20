@@ -46,18 +46,20 @@ Clean data
 }
 
 \examples{
+\dontrun{
 x <- system.file("examples/plant_spp.csv", package = "taxview")
 
 # assuming you only have taxonomic names
-tv_clean_names(x, tax_name = "name")
+# tv_clean_names(x, names = "name")
 
 # if you have taxonomic IDs (from set of allowed databases, see above)
 ## if a column name
-tv_clean_ids(x, ids_col = "id", db = "eol")
+# tv_clean_ids(x, ids = "id", db = "eol")
 ## if a vector of IDs
 dat <- tibble::as_tibble(
  data.table::fread(x, stringsAsFactors = FALSE, 
    data.table = FALSE))
 out <- tv_clean_ids(x, ids = dat$id, db = "ncbi")
 head(out)
+}
 }
