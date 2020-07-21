@@ -59,6 +59,7 @@ jobs:
         run: |
           remotes::install_deps(dependencies = TRUE)
           remotes::install_cran(c("rcmdcheck"))
+          remotes::install_github(c("ropensci/taxizedb"))
         shell: Rscript {0}
 
       - name: Session info

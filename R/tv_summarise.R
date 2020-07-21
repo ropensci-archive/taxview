@@ -41,7 +41,7 @@ tv_summarise <- function(x) {
     group_by(rank) %>% 
     select(-percent) %>% 
     mutate(percent = round((count / sum(count)) * 100)) %>% 
-    nest()
+    tidyr::nest()
   within_rank <- stats::setNames(within_rank$data, within_rank$rank)
 
   # compile output

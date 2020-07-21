@@ -1,7 +1,6 @@
-db_options <- c("bold", "col", "eol", "gbif", "iucn", "natserv", "nbn", 
-  "tol", "tropicos", "itis", "ncbi", "worms")
-
-db_db_options <- "ncbi"
+# db_options <- c("bold", "col", "eol", "gbif", "iucn", "natserv", "nbn", 
+#   "tol", "tropicos", "itis", "ncbi", "worms")
+db_options <- "ncbi"
 
 do_nms <- function(x, tax_names = NULL, tax_ids = NULL, db = NULL) {
   if (!is.null(tax_names)) {
@@ -21,9 +20,7 @@ do_nms <- function(x, tax_names = NULL, tax_ids = NULL, db = NULL) {
 }
 
 do_ids <- function(x, col = NULL, ids = NULL, db = NULL) {
-  # if (!db %in% db_options) stop("'db' not in set of db options, see help")
-  if (!db %in% db_db_options) stop("'db' not in set of db options, see help")
-  # db_db_options
+  if (!db %in% db_options) stop("'db' not in set of db options, see help")
   if (!is.null(col)) {
     ids <- x[[col]] 
     if (is.null(ids)) stop("'col' field not found or empty")
@@ -38,10 +35,15 @@ do_ids <- function(x, col = NULL, ids = NULL, db = NULL) {
   chks <- split(rws, ceiling(seq_along(rws) / chunk_size))
   cls <- list()
   for (i in seq_along(chks)) {
-    # cls[[i]] <- taxize::classification(ids_u[chks[[i]]], db = db)
     cls[[i]] <- taxizedb::classification(ids_u[chks[[i]]], db = db)
   }
   cls <- unlist(cls, recursive = FALSE)
   cls <- Filter(is.data.frame, cls)
   tibble::as_tibble(dplyr::bind_rows(cls))
 }
+
+# db_ids <- function(ids, db) paste(toupper(db), ids, sep = ":")
+# clazzification <- function(ids, db) {
+#   z <- db_ids(ids, db)
+#   out <- taxadb::filter_id(z, provider = db)
+# }
