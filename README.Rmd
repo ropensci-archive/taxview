@@ -17,7 +17,7 @@ Summarise and visualize data sets taxonomically
 ## install
 
 ```{r eval=FALSE}
-devtools::install_github("ropensci/taxview")
+remotes::install_github("ropensci/taxview")
 ```
 
 ```{r}
@@ -38,21 +38,20 @@ prepare data: clean, etc.
 dat <- tibble::as_tibble(
  data.table::fread(x, stringsAsFactors = FALSE, 
    data.table = FALSE))
-head(dat)
-dat_clean <- tv_clean_ids(x, ids = dat$id, db = "ncbi")
-head(dat_clean)
+out <- tv_clean_ids(x, ids = dat$id, db = "ncbi")
 ```
 
 prepare summary
 
 ```{r}
-(sumdat <- tv_summarise(dat_clean))
+res <- tv_summarise(out)
+res
 ```
 
 visualize (NOT WORKING YET)
 
 ```{r eval=FALSE}
-tv_viz(sumdat)
+tv_viz(res)
 ```
 
 ## Meta

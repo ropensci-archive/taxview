@@ -47,8 +47,8 @@ tv_clean_names <- function(x, col = NULL, names = NULL, db = NULL) {
 }
 
 #' @export
-tv_clean_names.default <- function(x) {
-  stop("No 'tv_clean_names' for class ", class(x))
+tv_clean_names.default <- function(x, col = NULL, names = NULL, db = NULL) {
+  stop("No 'tv_clean_names' for class ", class(x)[1L])
 }
 
 #' @export
@@ -62,15 +62,15 @@ tv_clean_names.character <- function(x, col = NULL, names = NULL, db = NULL) {
     data.table::fread(x, stringsAsFactors = FALSE, 
       data.table = FALSE)
   )
-  do_names(dat, col, names, db)
+  do_nms(dat, col, names, db)
 }
 
 #' @export
 tv_clean_names.data.frame <- function(x, col = NULL, names = NULL, db = NULL) {
   stop("not working yet")
-  stopifnot(xor(!is.null(names_col), !is.null(ids_col)))
+  stopifnot(xor(!is.null(names), !is.null(col)))
   if (any())
-  do_names(dat, col, names, db)
+  do_nms(x, col, names, db)
 }
 
 
@@ -82,8 +82,8 @@ tv_clean_ids <- function(x, col = NULL, ids = NULL, db = NULL) {
 }
 
 #' @export
-tv_clean_ids.default <- function(x) {
-  stop("No 'tv_clean_ids' for class ", class(x))
+tv_clean_ids.default <- function(x, col = NULL, ids = NULL, db = NULL) {
+  stop("No 'tv_clean_ids' for class ", class(x)[1L])
 }
 
 #' @export
@@ -102,7 +102,7 @@ tv_clean_ids.character <- function(x, col = NULL, ids = NULL, db = NULL) {
 #' @export
 tv_clean_ids.data.frame <- function(x, col = NULL, ids = NULL, db = NULL) {
   stopifnot(xor(!is.null(col), !is.null(ids)))
-  do_ids(dat, col, ids, db)
+  do_ids(x, col, ids, db)
 }
 
 

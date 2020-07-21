@@ -20,21 +20,21 @@ tv_summarise <- function(x) {
 	assert(x, c("data.frame", "tbl_df"))
   x <- as_tibble(x)
   # summary data
-  sumdat <- length(unique(x$query))
+  sumdat <- length(unique(x$name))
 	# by rank
   rank <- x %>% 
     group_by(rank) %>% 
-    summarise(count = length(unique(query))) %>% 
+    summarise(count = length(unique(name))) %>% 
     dplyr::ungroup() %>% 
     arrange(desc(count)) %>% 
-    mutate(percent = round((count / length(unique(x$query))) * 100))
+    mutate(percent = round((count / length(unique(x$name))) * 100))
   # by rank name (including rank to be more useful)
   rank_name <- x %>% 
     group_by(name, rank) %>% 
-    summarise(count = length(unique(query))) %>% 
+    summarise(count = length(unique(name))) %>% 
     ungroup() %>% 
     arrange(desc(count)) %>% 
-    mutate(percent = round((count / length(unique(x$query))) * 100))
+    mutate(percent = round((count / length(unique(x$name))) * 100))
   # comparisons within rank
   within_rank <- rank_name %>% 
     filter(rank != "no rank") %>% 
@@ -62,3 +62,5 @@ print.tv_summary <- function(x, ...) {
   cat(sprintf(" by rank name: N (%s)", NROW(x$by_rank_name)), sep = "\n")
   cat(sprintf(" within ranks: N (%s)", length(x$by_within_rank)), sep = "\n")
 }
+
+utils::globalVariables(c("query", "name", "percent", "count", "rank"))

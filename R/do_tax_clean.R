@@ -17,7 +17,7 @@ do_nms <- function(x, tax_names = NULL, tax_ids = NULL, db = NULL) {
   }
   
   xx_uniq <- unique(xx)
-  if (!db %in$% db_options) stop("'db' not in set of db options, see help")
+  if (!db %in% db_options) stop("'db' not in set of db options, see help")
 }
 
 do_ids <- function(x, col = NULL, ids = NULL, db = NULL) {
@@ -42,5 +42,6 @@ do_ids <- function(x, col = NULL, ids = NULL, db = NULL) {
     cls[[i]] <- taxizedb::classification(ids_u[chks[[i]]], db = db)
   }
   cls <- unlist(cls, recursive = FALSE)
-  return(tibble::as_tibble(rbind(structure(cls, class = "classification"))))
+  cls <- Filter(is.data.frame, cls)
+  tibble::as_tibble(dplyr::bind_rows(cls))
 }
