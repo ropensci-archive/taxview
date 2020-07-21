@@ -11,14 +11,17 @@ tv_prep_names(x, col = NULL, names = NULL, db = NULL)
 tv_prep_ids(x, col = NULL, ids = NULL, db = NULL)
 }
 \arguments{
-\item{x}{(data.frame) input data}
+\item{x}{(data.frame) input data.frame or file path}
+
+\item{col}{(character) column name holding taxonomic names
+or taxonomic ids to use}
+
+\item{names}{(character) column name holding taxonomic names
+to use. if given, \code{db} is required}
 
 \item{db}{(character) database IDs from. see below for options}
 
-\item{tax_names}{(character) column name holding taxonomic names
-to use}
-
-\item{tax_ids}{(character) column name holding taxonomic IDs
+\item{ids}{(character) column name holding taxonomic IDs
 to use. if given, \code{db} is required}
 }
 \value{

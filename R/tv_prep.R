@@ -1,10 +1,12 @@
 #' Prepare taxonomic data
 #' 
 #' @name tv_prep
-#' @param x (data.frame) input data
-#' @param tax_names (character) column name holding taxonomic names 
-#' to use
-#' @param tax_ids (character) column name holding taxonomic IDs
+#' @param x (data.frame) input data.frame or file path
+#' @param col (character) column name holding taxonomic names 
+#' or taxonomic ids to use
+#' @param names (character) column name holding taxonomic names
+#' to use. if given, `db` is required
+#' @param ids (character) column name holding taxonomic IDs
 #' to use. if given, `db` is required
 #' @param db (character) database IDs from. see below for options
 #' @return an object of class data.frame
