@@ -8,7 +8,7 @@
 #' dat <- tibble::as_tibble(
 #'  data.table::fread(x, stringsAsFactors = FALSE, 
 #'    data.table = FALSE))
-#' out <- tv_clean_ids(x, ids = dat$id, db = "ncbi")
+#' out <- tv_prep_ids(x, ids = dat$id, db = "ncbi")
 #' (res <- tv_summarise(out))
 #' res$summary
 #' res$by_rank

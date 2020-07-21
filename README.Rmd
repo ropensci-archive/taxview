@@ -47,7 +47,7 @@ prepare data: clean, etc.
 dat <- tibble::as_tibble(
  data.table::fread(x, stringsAsFactors = FALSE, 
    data.table = FALSE))
-out <- tv_clean_ids(x, ids = dat$id, db = "ncbi")
+out <- tv_prep_ids(x, ids = dat$id, db = "ncbi")
 ```
 
 Prepare summary. The output of `tv_summarise()` is an S3 class, with a summary of the groupings.
