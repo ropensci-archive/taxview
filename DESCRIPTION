@@ -4,7 +4,7 @@ Title: Tools for Vizualizing Data Taxonomically
 Description: Tools for vizualizing data taxonomically.
 Version: 0.0.2.91
 Authors@R: c(
-    person("Scott", "Chamberlain", email = "myrmecocystus+r@gmail.com", role = c("aut", "cre")),
+    person("Scott", "Chamberlain", email = "myrmecocystus@gmail.com", role = c("aut", "cre")),
     person("Carl", "Boettiger", role = "aut")
     )
 URL: https://docs.ropensci.org/taxview, https://github.com/ropensci/taxview
