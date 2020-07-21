@@ -14,6 +14,15 @@ knitr::opts_chunk$set(
 
 Summarise and visualize data sets taxonomically
 
+The proposed workflow with `taxview`:
+
+- input:
+  - data.frame with data, indicate which column has names or ids
+  - vector/list of names or ids (not associated with data)
+- gather taxonomic classification data for each taxon
+- from previously collected data, compute summary statistics/etc.
+- visualize data among taxonomic groups, etc.
+
 ## install
 
 ```{r eval=FALSE}
@@ -41,11 +50,35 @@ dat <- tibble::as_tibble(
 out <- tv_clean_ids(x, ids = dat$id, db = "ncbi")
 ```
 
-prepare summary
+Prepare summary. The output of `tv_summarise()` is an S3 class, with a summary of the groupings.
 
 ```{r}
 res <- tv_summarise(out)
 res
+```
+
+The `$summary` slot has the number of taxa in the dataset
+
+```{r}
+res$summary
+```
+
+The `$by_rank` slot has the breakdown of taxa within each rank category, as a count and percentage.
+
+```{r}
+res$by_rank
+```
+
+The `$by_rank_name` slot has the breakdown of taxa ...
+
+```{r}
+res$by_rank_name
+```
+
+The `$by_within_rank` slot has the breakdown of number of records within each taxon within each rank grouping.
+
+```{r}
+res$by_within_rank[1:2]
 ```
 
 visualize (NOT WORKING YET)
