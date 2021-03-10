@@ -18,3 +18,9 @@ tv_viz <- function(x) {
   stop("not working yet")
   return(x)
 }
+
+# x = parse_tax_data(hmp_otus, class_cols = "lineage", class_sep = ";",
+#                         class_key = c(tax_rank = "taxon_rank", tax_name = "taxon_name"),
+#                         class_regex = "^(.+)__(.+)$")
+# heat_tree(x)
+
