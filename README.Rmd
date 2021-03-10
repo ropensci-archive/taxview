@@ -9,7 +9,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Project Status: Suspended – Initial development has started, but there has not yet been a stable, usable release; work has been stopped for the time being but the author(s) intend on resuming work.](https://www.repostatus.org/badges/latest/suspended.svg)](https://www.repostatus.org/#suspended)
 [![R-check](https://github.com/ropensci/taxview/workflows/R-check/badge.svg)](https://github.com/ropensci/taxview/actions)
 
 Summarise and visualize data sets taxonomically
